@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160d2b">
+  <title>A Little World for You 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="heart-rain" id="heartRain" aria-hidden="true"></div>
+  <div class="particle-rain" id="particleRain" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <aside class="shayari-panel" id="shayariPanel" aria-label="Love shayari" hidden>
+    <div class="shayari-track">
+      <p>तेरी हँसी मेरी सबसे प्यारी धुन है। 💗</p>
+      <p>तुमसे ही रोशन मेरी हर शाम है। 🌙</p>
+      <p>तुम खुश रहो, बस यही मेरी दुआ है। 🌹</p>
+      <p>दिल की हर धड़कन में तेरा नाम है। ❤️</p>
+      <p>तेरी हँसी मेरी सबसे प्यारी धुन है। 💗</p>
+      <p>तुमसे ही रोशन मेरी हर शाम है। 🌙</p>
+    </div>
+  </aside>
+<header class="topbar">
+    <div class="brand">♡ a little love note for Knikaa</div>
+    <button id="musicToggle" class="icon-button" type="button" aria-label="Toggle background music" title="Music on/off" hidden>♫ <span id="musicLabel">Music</span></button>
+  </header>
+
+  <main>
+    <section class="scene active welcome-scene" id="welcomeScene">
+      <div class="eyebrow welcome-eyebrow">✦ A LITTLE BIRTHDAY MAGIC ✦</div>
+      <div class="hero-heart" aria-hidden="true"><span>♥</span><i>♡</i></div>
+      <p class="pre-title">A LITTLE BIRTHDAY MAGIC FOR</p>
+      <h1>Hey, <span class="script">Knikaa</span></h1>
+      <p class="lead">Someone has prepared a tiny world of love, smiles, and lovely little surprises just for you, Knikaa.</p>
+      <button class="primary-button start-button" id="openSurprise" type="button"><span>Open your surprise</span><b>♡</b></button>
+      <p class="tiny-note">Made with a little extra love ✨</p>
+    </section>
+
+    <section class="scene" id="birthdayScene" hidden>
+      <div class="eyebrow">Today is all about you</div>
+      <div class="cake-wrap" id="cakeWrap">
+        <div class="cake-glow"></div>
+        <div class="candles" aria-label="Birthday candles">
+          <span class="candle"><i class="flame"></i></span>
+          <span class="candle"><i class="flame"></i></span>
+          <span class="candle"><i class="flame"></i></span>
+        </div>
+        <div class="cake-top"></div>
+        <div class="cake-layer cake-layer-top"></div>
+        <div class="cake-layer cake-layer-bottom"></div>
+        <div class="cake-plate"></div>
+      </div>
+      <h2>Happy Birthday, <span class="script" id="nicknameHeading">Knikaa</span>! 🎂</h2>
+      <p class="lead">May your day be full of little joys, warm hugs, beautiful memories, and every reason to smile.</p>
+      <button class="primary-button" id="makeWish" type="button">Wish Birthday 💖</button>
+      <p class="tiny-note" id="wishHint">Tap the button to blow out the candles.</p>
+      <button class="text-button next-step" id="toQuotes" type="button">A few words from my heart →</button>
+      <div class="birthday-modal" id="birthdayModal" role="dialog" aria-modal="true" aria-labelledby="birthdayModalTitle" hidden>
+        <div class="birthday-modal-card"><button class="modal-close" id="closeBirthdayModal" type="button" aria-label="Close birthday message">×</button><div class="modal-crown">✦ 🎂 ✦</div><p class="modal-kicker">TODAY IS YOUR DAY</p><h2 id="birthdayModalTitle">HAPPY BIRTHDAY</h2><div class="modal-name script">KNIKAA 💖</div><p>May your smile shine brighter than every star, and may this year bring you love, laughter, and beautiful memories.</p><div class="modal-hearts">♡ ♥ ♡</div><button class="primary-button" id="continueBirthday" type="button">Continue the surprise ✨</button></div>
+      </div>
+    </section>
+
+    <section class="scene" id="quotesScene" hidden>
+      <div class="eyebrow">Words I wanted you to know</div>
+      <h2>A few words <span class="script">from my heart</span> 💌</h2>
+      <article class="glass-card quote-card" aria-live="polite">
+        <div class="quote-number" id="quoteNumber">01 / 06</div>
+        <div class="quote-sparkle">✦</div>
+        <p class="quote-text" id="quoteText">Some people make ordinary days feel extraordinary. You are one of those people.</p>
+        <div class="quote-heart">♥</div>
+      </article>
+      <div class="button-row">
+        <button class="secondary-button" id="prevQuote" type="button">← Previous</button>
+        <button class="primary-button" id="nextQuote" type="button">Reveal next ♡</button>
+      </div>
+      <button class="text-button next-step" id="toLetter" type="button">One last little surprise →</button>
+    </section>
+
+    <section class="scene" id="letterScene" hidden>
+      <div class="eyebrow">Just between you and me</div>
+      <h2>A letter, <span class="script">just for you</span> 💌</h2>
+      <p class="lead">There are some feelings that deserve a little more than a message.</p>
+      <button class="envelope-button" id="openLetter" type="button" aria-label="Open the love letter">
+        <span class="envelope-heart">♥</span>
+        <span class="envelope-flap"></span>
+        <span class="envelope-label">Open my letter</span>
+      </button>
+      <article class="letter-paper" id="letterPaper" hidden>
+        <p class="letter-greeting script">To my favourite person,</p>
+        <p>Happy Birthday! ❤️</p>
+        <p>I hope this new year of your life brings you peace, confidence, laughter, and beautiful surprises. You deserve kindness on the difficult days and extra happiness on the good ones.</p>
+        <p>Thank you for being exactly who you are. Never forget how special you are, how much your smile matters, and how many lovely things are still waiting for you.</p>
+        <p>Keep smiling, keep shining, and keep being wonderfully you. 🌷</p>
+        <p class="letter-signoff script">With lots of love ♡</p>
+        <p class="edit-note">Tip: Edit this letter in index.html to make it personal.</p>
+      </article>
+      <button class="primary-button restart-button" id="restartExperience" type="button">Relive the surprise ↻</button>
+    </section>
+  </main>
+
+  <footer id="siteFooter" hidden>a tiny universe, made just for you ♡</footer>
+  <script src="js/quotes.js"></script>
+  <script src="js/hearts.js"></script>
+  <script src="js/cake.js"></script>
+  <script src="js/letter.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

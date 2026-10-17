@@ -1,0 +1,37 @@
+/* Motion effects. Respect reduced-motion preferences in responsive.css. */
+@keyframes sceneIn { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes heartBeat { 0%,100% { transform: scale(1); } 12% { transform: scale(1.12); } 24% { transform: scale(1); } 36% { transform: scale(1.08); } }
+@keyframes shayariScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes fall { from { transform: translate3d(0,-12vh,0) rotate(0deg); opacity: 0; } 10% { opacity: var(--heart-opacity, .7); } to { transform: translate3d(var(--drift, 40px),110vh,0) rotate(540deg); opacity: 0; } }
+@keyframes flicker { 0%,100% { transform: scale(1) rotate(-2deg); opacity: 1; } 50% { transform: scale(.78) rotate(3deg); opacity: .75; } }
+@keyframes candleOut { to { transform: scale(.1); opacity: 0; } }
+@keyframes envelopeOpen { to { transform: rotateX(180deg); } }
+@keyframes letterReveal { from { opacity: 0; transform: translateY(22px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes burst { 0% { transform: scale(.2); opacity: 1; } 100% { transform: scale(2.5) translateY(-30px); opacity: 0; } }
+.heart-rain { position: fixed; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.falling-heart { position: absolute; top: -10vh; left: var(--left); font-size: var(--size); opacity: 0; animation: fall var(--duration) linear var(--delay) infinite; filter: drop-shadow(0 0 8px rgba(255,95,180,.4)); }
+.quote-card.revealing .quote-text { animation: sceneIn .55s ease both; }
+.cake-wrap { position: relative; width: 230px; height: 200px; margin: 8px auto 28px; }
+.cake-glow { position: absolute; inset: 40px 0 0; border-radius: 50%; background: rgba(255,90,180,.22); filter: blur(35px); }
+.cake-plate { position: absolute; width: 220px; height: 18px; border-radius: 50%; bottom: 6px; left: 5px; background: linear-gradient(#ffe1f3,#e77ab5); box-shadow: 0 6px 18px #090514; }
+.cake-layer { position: absolute; left: 20px; width: 190px; border-radius: 13px 13px 18px 18px; background: linear-gradient(90deg,#ec6da7,#ffc0e0 45%,#ee79b7); box-shadow: inset 0 -9px rgba(128,32,89,.13); }
+.cake-layer-top { bottom: 83px; height: 47px; }
+.cake-layer-bottom { bottom: 22px; height: 66px; }
+.cake-top { position: absolute; z-index: 1; left: 20px; bottom: 119px; width: 190px; height: 23px; border-radius: 50%; background: #ffe0f1; }
+.candles { position: absolute; z-index: 2; display: flex; gap: 25px; left: 75px; bottom: 138px; }
+.candle { width: 11px; height: 38px; border-radius: 4px 4px 2px 2px; background: repeating-linear-gradient(135deg,#fff4fc 0 5px,#ff7ebd 5px 10px); position: relative; }
+.flame { position: absolute; width: 13px; height: 19px; border-radius: 70% 30% 60% 40%; background: #ffe8a6; left: -1px; top: -22px; box-shadow: 0 0 14px #ff9b43,0 0 28px #ff5b9f; transform: rotate(45deg); animation: flicker .65s infinite; }
+.cake-wrap.blown .flame { animation: candleOut .3s forwards; }
+.cake-wrap.blown .cake-glow { opacity: .5; }
+.envelope-button { position: relative; display: block; width: 240px; height: 155px; margin: 35px auto 20px; border: 1px solid #ffb7df; border-radius: 10px; cursor: pointer; background: linear-gradient(135deg,#ff9ed1,#d94f9b); box-shadow: 0 16px 45px rgba(255,75,170,.2); perspective: 700px; }
+.envelope-button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(35deg,transparent 49%,rgba(255,230,246,.4) 50%,transparent 51%),linear-gradient(-35deg,transparent 49%,rgba(255,230,246,.35) 50%,transparent 51%); }
+.envelope-flap { position: absolute; top: 0; left: 0; width: 100%; height: 58%; background: #ffb6df; clip-path: polygon(0 0,100% 0,50% 100%); transform-origin: top; transition: transform .65s ease; z-index: 2; }
+.envelope-button.open .envelope-flap { transform: rotateX(180deg); }
+.envelope-heart { position: absolute; z-index: 3; top: 52px; left: 0; right: 0; color: #a31c68; font-size: 2rem; }
+.envelope-label { position: absolute; bottom: 15px; left: 0; right: 0; z-index: 3; color: #681644; font-weight: 800; font-size: .85rem; }
+.letter-paper { width: min(560px,100%); margin: 22px auto; padding: clamp(22px,5vw,38px); text-align: left; color: #4c2343; background: linear-gradient(135deg,#fff4fa,#ffe1ef); border-radius: 8px; box-shadow: var(--shadow); line-height: 1.8; animation: letterReveal .8s ease both; }
+.letter-greeting, .letter-signoff { font-size: 1.8rem; margin-top: 0; }
+.letter-signoff { text-align: right; margin-bottom: 0; }
+.edit-note { font-size: .75rem; color: #96617f; border-top: 1px dashed #e8aacd; padding-top: 10px; }
+.restart-button { margin-top: 20px; }
+.heart-burst { position: fixed; z-index: 10; pointer-events: none; color: #ff8fcb; animation: burst .8s ease-out forwards; }

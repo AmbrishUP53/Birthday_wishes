@@ -1,0 +1,26 @@
+@media (max-width: 900px) {
+  .shayari-panel { right: 8px; width: 105px; padding-left: 8px; opacity: .55; }
+  .shayari-track p { font-size: 1rem; }
+  main { padding-left: 18px; padding-right: 18px; }
+}
+@media (max-width: 620px) {
+  .topbar { width: calc(100% - 28px); padding: 17px 0; }
+  .brand { font-size: .78rem; }
+  #musicLabel { display: none; }
+  main { min-height: calc(100svh - 110px); padding: 22px 14px 44px; }
+  .scene { max-width: 100%; }
+  .eyebrow { font-size: .66rem; letter-spacing: .15em; margin-bottom: 17px; }
+  .lead { line-height: 1.65; }
+  .shayari-panel { position: relative; top: auto; right: auto; width: min(90%,380px); height: 42px; margin: 0 auto; border-left: 0; border-top: 1px solid rgba(255,143,203,.18); padding: 7px 0 0; opacity: .72; }
+  .shayari-track { display: flex; gap: 25px; width: max-content; animation: shayariScrollHorizontal 28s linear infinite; }
+  .shayari-track p { white-space: nowrap; font-size: 1rem; margin: 0; }
+  .quote-card { min-height: 240px; border-radius: 20px; padding: 25px 20px; }
+  .button-row { gap: 8px; }
+  .primary-button, .secondary-button { padding: 12px 18px; font-size: .92rem; }
+  .cake-wrap { transform: scale(.9); margin-top: -3px; margin-bottom: 12px; }
+  .envelope-button { width: 210px; height: 140px; }
+}
+@keyframes shayariScrollHorizontal { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
